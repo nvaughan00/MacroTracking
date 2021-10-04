@@ -1,5 +1,6 @@
 # Stonks-Forever
 ## Rusty On Git?
+- Install git: https://git-scm.com/downloads
 - `git clone <repo url>`
 - `git checkout -b "your branch name"`
 - *Do your work*
