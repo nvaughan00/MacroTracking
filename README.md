@@ -4,6 +4,6 @@ This is a project to learn more about css & javascript. Stored here are all file
 - Currently `https` is not supported as I didn't want to pay for it. It was working at one point with AWS's `CloudHSM` but it was expensive
 
 ## Credentials
-If wanting to test this project out for yourself, you can log in using the credentials:
-    - Username: test
-    - Password: test123
+If wanting to test this project out for yourself, you can log in using the credentials
+- Username: test
+- Password: test123
