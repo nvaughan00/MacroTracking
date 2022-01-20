@@ -1,0 +1,41 @@
+.pageDiv {
+    margin:auto;
+    text-align: center;
+    vertical-align: center;
+    border-radius: 45px;
+    border-style: solid;
+    background: rgba(189, 166, 203, 0.2);
+    width:80%;
+}
+
+.loginDiv {
+    text-align: center;
+}
+
+.loginDiv h1 {
+    display: inline-block;
+    font-family: 'Gabriela', serif;
+    color: black;
+    font-size: 72px;
+}
+
+.textboxDiv {
+    text-align: center;
+}
+
+ul {
+    display: inline;
+    font-family: 'Gabriela', serif;
+    font-size: 42px;
+    color: black;
+}
+
+ul li {
+    display: inline;
+}
+
+button {
+    background-size:cover;
+    font-size: 42px;
+    border-radius: 10px;
+}

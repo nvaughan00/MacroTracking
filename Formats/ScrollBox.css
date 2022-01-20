@@ -1,0 +1,129 @@
+.wrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(10px, auto);
+    background: rgba(255, 255, 255, 0.3);
+    width:45%;
+    left:5%;
+    border-radius:25px;
+    float:left;
+    overflow-y:scroll;
+    height:700px;
+}
+
+.one {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 32px;
+    border-radius: 25px;
+    background: white;
+}
+.three {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 32px;
+    background: white;
+}
+.four {
+    grid-column: 4;
+    grid-row: 1;
+    font-size: 32px;
+    background: white;
+}
+
+.five {
+    grid-column: 1;
+    grid-row: 2;
+    font: 22px sans-serif;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    background: green;
+}
+.six {
+    grid-column: 2;
+    grid-row: 2;
+    font: 22px sans-serif;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    background: blue;
+}
+.seven {
+    grid-column: 3;
+    grid-row: 2;
+    font: 22px sans-serif;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    background: yellow;
+}
+.eight {
+    grid-column: 4;
+    grid-row: 2;
+    font: 22px sans-serif;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    background: pink;
+}
+
+.innerWrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(10px, auto);
+    width:40%;
+    left:10%;
+    top:5%;
+}
+
+.innerinnerWrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(10px, auto);
+    background: palegoldenrod;
+}
+
+.innerOne {
+    grid-column: 1;
+    grid-row: 1;
+    font: 22px sans-serif;
+    text-align: left;
+    background: darkseagreen;
+    border:1px solid black;
+}
+
+.innerTwo {
+    grid-column: 2;
+    grid-row: 1;
+    font: 22px sans-serif;
+    text-align: left;
+    background: palegoldenrod;
+    border:1px solid black;
+
+}
+
+.innerThree {
+    grid-column: 1;
+    grid-row: 2;
+    font: 22px sans-serif;
+    text-align: left;
+    background: palegoldenrod;
+    border:1px solid black;
+    height:90%;
+    height:350px;
+}
+
+.innerFour {
+    grid-column: 2;
+    grid-row: 2;
+    font: 22px sans-serif;
+    text-align: left;
+    background: darkseagreen;
+    border:1px solid black;
+    overflow-y:scroll;
+    height:350px;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NVProjects</title>
+    <link rel='stylesheet' type='text/css' href='Formats/Background.css'>
+    <link rel='stylesheet' type='text/css' href='Formats/ScrollBox.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link rel="shortcut icon" href="#">
+</head>
+    <body onload="addAllFields()">
+
+        <script type = "text/javascript" src = "Javascript/AddMeals.js?t=13336"></script>
+        <script type = "text/javascript" src = "Javascript/ApiCalls.js?t=41323336"></script>
+
+        <style>
+            ::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
+            }
+            body{overflow-x:hidden;}
+            h1 {text-align: center;font-size: 28px}
+            h2 {text-align: center;font-size: 24px;text-decoration: underline;}
+            h3 {font-size: 32px;text-decoration: underline;font-weight: bold;font-style: italic}
+            h4 {text-align: center;font-size: 24px;text-decoration: underline}
+            button {border-radius: 15%;background-color: lightpink;}
+            label {position: relative; top: 5%; left: 5%;}
+            input {position: relative; top: 5%; left: 5%; width: 100px}
+            .wrapper {display: grid;position: relative;grid-template-columns: repeat(4, 1fr);grid-auto-rows: minmax(10px, auto);background: rgba(255, 255, 255, 0.3);width:45%;left:5%;border-radius:25px;float:left;height:700px;}
+            .one {grid-column: 1;grid-row: 1;font-size: 32px;border-radius: 25px;background: transparent;height:20%;}
+            .five {grid-column: 1;grid-row: 2;font: 22px sans-serif;border-radius: 20px;position: relative;background:transparent;height:700px;bottom:3%;}
+        </style>
+        
+        <audio id="audioSubmitAll" src="Formats/Resources/buttonclick.mp3"></audio>
+
+        <h1>Add Meals</h1>
+            <ul class="home">
+                <li><a href = "index.html" class = "nullify">Home</a></li>
+                <li><a href = "AddGoals.html" class = "nullify">Update Goal</a></li>
+                <li><a href = "MacroCalculator.html" class = "nullify">Macro Calculator</a></li>
+            </ul><br>
+            <div id ="main" style = "width:100vw;overflow-x:hidden;position:relative;">
+                <!-- This is for the predefined buttons section-->
+                <div class="wrapper">
+                    <div class="one"><h3 style="position:relative;bottom:50%;">Predefined</h3></div>
+                    <div class="one" style="grid-column: 2;height:100%;position:relative;right:10%;">
+                        <label for="searchInput" style="font-size:22px;top:20%;">Search: </label><input type="text" id="searchInput" oninput="filterButtons()"  autocomplete="off" style="width:100px;top:20%;height:18px;">
+                    </div>
+                    <div class="one" style="grid-column:3;position:relative;left:20%;top:10%;">
+                        <button onclick="pushItemsToDatabase();" type="button" style="font-size:24px;position:relative;top:50%;">Submit All</button>
+                    </div>
+                    <div class="one" style="grid-column: 4;">
+                        <div id="fadingSuccess" style="font-size:20px;position:relative;top:50%;"></div>
+                    </div>
+                    <div class="five" id="predefinedOne"></div>
+                    <div class="five" id="predefinedTwo" style="grid-column:2;"></div>
+                    <div class="five" id="predefinedThree" style="grid-column:3;"></div>
+                    <div class="five" id="predefinedFour" style="grid-column:4;"></div>
+                </div>
+                
+                <!-- This is the other section -->
+                <div id="otherStuff">
+                    <div class="innerWrapper">
+                        <div class="innerOne">
+                            <label for="nameInput" style="padding-left:22px">Name: </label><input type="text" id="nameInput" style="padding-right:20px"><br>
+                            <label for="calInput">Calories: </label><input type="text" id="calInput" style="padding-right:20px"><br>
+                            <label for="proteinInput" style="padding-left:11px">Protein: </label><input type="text" id="proteinInput" style="padding-right:20px"><br>
+                            <label for="carbInput" style="padding-left:22px">Carbs: </label><input type="text" id="carbInput" style="padding-right:20px"><br>
+                            <label for="fatInput" style="padding-left:49px">Fat: </label><input type="text" id="fatInput" style="padding-right:20px"><br><br>
+                            <button onclick="addOtherLocal();" type="button" style="position: relative;font-size: 24px;top: 5%;left: 5%;" id="submitOtherBtn">Submit Item</button><br><br>
+                            <button onclick="addOther()" type="button" style="position: relative;font-size: 24px;top: 5%;left: 5%;">Create New Item</button>
+                            <p id="errorMessageAppend" style="position:relative;bottom:62%;left:64%;"></p>
+                        </div>
+                        <div class="innerTwo">
+                            <div class ="innerinnerWrapper">
+                                <div style ="width=50%;height=50%;position:relative;left:5%">
+                                    <p>Daily Calories: </p>
+                                    <div id="calorieProgressBarOuter" style="width:80%;background-color:grey;position:relative;bottom:10%;text-align:center;border:1px solid #000000">
+                                        <div id="calorieProgressBarInner" style="width:0%;height:30px;background-color:green;text-align:center;border-right:1px solid #000000"></div>
+                                    </div>
+                                    <p id="runningTotalCalories" style="position:relative;bottom:10%;font-size:18px"></p>
+                                </div>
+                                
+                                <div style ="width=50%;height=50%;position:relative;left:5%">
+                                    <p>Daily Protein: </p>
+                                    <div id="proteinProgressBarOuter" style="width:80%;background-color:grey;position:relative;bottom:10%;text-align:center;border:1px solid #000000">
+                                        <div id="proteinProgressBarInner" style="width:0%;height:30px;background-color:green;text-align:center;border-right:1px solid #000000"></div>
+                                    </div>
+                                    <p id="runningTotalProtein" style="position:relative;bottom:10%;font-size:18px"></p>
+                                </div>
+                                
+                                <div style ="width=50%;height=50%;position:relative;left:5%">
+                                    <p>Daily Fat: </p>
+                                    <div id="fatProgressBarOuter" style="width:80%;background-color:grey;position:relative;bottom:10%;text-align:center;border:1px solid #000000">
+                                        <div id="fatProgressBarInner" style="width:0%;height:30px;background-color:green;text-align:center;border-right:1px solid #000000"></div>
+                                    </div>
+                                    <p id="runningTotalFat" style="position:relative;bottom:10%;font-size:18px"></p>
+                                </div>
+                                
+                                <div style ="width=50%;height=50%;position:relative;left:5%">
+                                    <p>Daily Carbs: </p>
+                                    <div id="carbsProgressBarOuter" style="width:80%;background-color:grey;position:relative;bottom:10%;text-align:center;border:1px solid #000000">
+                                        <div id="carbsProgressBarInner" style="width:0%;height:30px;background-color:green;text-align:center;border-right:1px solid #000000"></div>
+                                    </div>
+                                    <p id="runningTotalCarbs" style="position:relative;bottom:10%;font-size:18px"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="innerThree" style="overflow-x:auto">
+                            <h2>Current Item Nutrional Info</h2>
+                            <p style="font-style:italic;font-size:18px;position:relative;left:8%;bottom:4%">(Click an item's name to display its info)</p>
+                            <canvas id="myCanvas" width="300%" height="200%" style="border:2px solid #000000;border-radius:15%;position:relative;left:10%;background:rgba(255, 255, 255, 0.4);">Your Browser Does Not Support HTML 5, Cringing.</canvas>
+                        </div>
+                        <div class="innerFour">
+                            <h4>View/Delete Items</h4>
+                            <div id="itemDisplay" style="position:relative;bottom:10%;width:300px;margin: 0px 0px 0px 15px;padding: 10px;overflow: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    </body>
+</html>
