@@ -1,13 +1,9 @@
-# Stonks-Forever
-## Rusty On Git?
-- Install git: https://git-scm.com/downloads
-- `git clone <repo url>`
-- `git checkout -b "your branch name"`
-- *Do your work*
-- `git add "filename"` or `git add -A` (Adds all changed files)
-- `git commit -m "Some message about what you did"`
-- `git push --set-upstream origin <branch name>`
-- Create a merge request
-    - Get a review
-    - Merge it
-- *Always remember to `git pull` before starting work, it can save a whole lot of pain*
+# Macro Tracking
+## Project Goals
+This is a project to learn more about css & javascript. Stored here are all files making up the website http://macrotrackingsupremo.com
+- Currently `https` is not supported as I didn't want to pay for it. It was working at one point with AWS's CloudHSM but it was expensive
+
+## Credentials
+If wanting to test this project out for yourself, you can log in using the credentials:
+    - Username: test
+    - Password: test123
